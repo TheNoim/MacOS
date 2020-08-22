@@ -937,6 +937,13 @@ sudo chown root ~/Library/Preferences/ByHost/com.apple.loginwindow*
 sudo chmod 000 ~/Library/Preferences/ByHost/com.apple.loginwindow*
 
 ###############################################################################
+# Remote Mangement                                                            #
+###############################################################################
+
+# Allow Access for All Users and Give All Users Full Access
+sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -configure -allowAccessFor -allUsers -privs -all
+
+###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
 
