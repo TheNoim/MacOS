@@ -4,13 +4,16 @@ input=$1
 
 export PATH=/usr/local/bin/:$PATH
 
+scriptLocation=$(dirname "${BASH_SOURCE[0]}")
+
 function getCurrentDisplay() {
-	echo $(yabai -m query --spaces | jq 'map(select(.focused == 1)) | .[0] | .display')
+	displayID=$($scriptLocation/mouse-display-id)
+	echo $(yabai -m query --displays | jq --argjson display "$displayID" 'map(select(.id == $display)) | .[0].index')
 }
 
 function getCurrentSpaceForDisplay() {
 	local display=$1
-	echo $(yabai -m query --spaces --display $display | jq 'map(select(.focused == 1)) | .[0] | .index')
+	echo $(yabai -m query --spaces --display $display | jq 'map(select(.visible == 1)) | .[0] | .index')
 }
 
 function getFirstSpaceIndexForDisplay() {

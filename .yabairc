@@ -3,10 +3,10 @@
 # Notify bitbar
 
 yabai -m signal --add event=space_changed \
-   action="set SHELL=/bin/sh && open -g \"bitbar://refreshPlugin?name=yabai.365d.sh\""
+    action="set SHELL=/bin/sh && open -g \"bitbar://refreshPlugin?name=yabai.365d.sh\""
 
 yabai -m signal --add event=display_changed \
-   action="set SHELL=/bin/sh && open -g \"bitbar://refreshPlugin?name=yabai.365d.sh\""
+    action="set SHELL=/bin/sh && open -g \"bitbar://refreshPlugin?name=yabai.365d.sh\""
 
 # Message
 echo "signals ready"
