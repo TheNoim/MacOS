@@ -7,31 +7,27 @@ export PATH=/usr/local/bin/:$PATH
 scriptLocation=$(dirname "${BASH_SOURCE[0]}")
 
 function getCurrentDisplay() {
-	displayID=$($scriptLocation/mouse-display-id)
-	echo $(yabai -m query --displays | jq --argjson display "$displayID" 'map(select(.id == $display)) | .[0].index')
+	echo $(yabai -m query --displays --display mouse | jq '.index')
 }
 
 function getCurrentSpaceForDisplay() {
-	local display=$1
-	echo $(yabai -m query --spaces --display $display | jq 'map(select(.visible == 1)) | .[0] | .index')
+	echo $(yabai -m query --spaces --display mouse | jq 'map(select(.visible == 1)) | .[0] | .index')
 }
 
 function getFirstSpaceIndexForDisplay() {
-	local display=$1
-	echo $(yabai -m query --spaces --display $display | jq '.[0] | .index')
+	echo $(yabai -m query --spaces --display mouse | jq '.[0] | .index')
 }
 
 function getLastSpaceIndexForDisplay() {
-	local display=$1
-	echo $(yabai -m query --spaces --display $display | jq '.[-1] | .index')
+	echo $(yabai -m query --spaces --display mouse | jq '.[-1] | .index')
 }
 
 function focusFirstSpace() {
-	yabai -m space --focus $(getFirstSpaceIndexForDisplay $(getCurrentDisplay))
+	yabai -m space --focus $(getFirstSpaceIndexForDisplay)
 }
 
 function focusLastSpace() {
-	yabai -m space --focus $(getLastSpaceIndexForDisplay $(getCurrentDisplay))
+	yabai -m space --focus $(getLastSpaceIndexForDisplay)
 }
 
 function focusSpace() {
@@ -43,11 +39,10 @@ if [ $input == 'first' ]; then
 elif [ $input == 'last' ]; then
 	focusLastSpace
 else
-	display=$(getCurrentDisplay)
-	currentSpace=$(getCurrentSpaceForDisplay $display)
+	currentSpace=$(getCurrentSpaceForDisplay)
 
 	if [ $input == 'next' ]; then
-		lastIndex=$(getLastSpaceIndexForDisplay $display)
+		lastIndex=$(getLastSpaceIndexForDisplay)
 		if [ $currentSpace == $lastIndex ]; then
 			focusFirstSpace
 		else
@@ -55,7 +50,7 @@ else
 			focusSpace $nextSpace
 		fi
 	elif [ $input == 'back' ]; then
-		firstIndex=$(getFirstSpaceIndexForDisplay $display)
+		firstIndex=$(getFirstSpaceIndexForDisplay)
 		if [ $currentSpace == $firstIndex ]; then
 			focusLastSpace
 		else
