@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# BIG SUR FIX
+
+sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
 # Notify bitbar
 
 yabai -m signal --add event=space_changed \
