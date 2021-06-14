@@ -22,6 +22,27 @@ function getLastSpaceIndexForDisplay() {
 	echo $(yabai -m query --spaces --display mouse | jq '.[-1] | .index')
 }
 
+function getGrabbedWindow() {
+	MOUSE=$(yabai -m query --windows --window mouse)
+	IS_GRABBED=$(echo $MOUSE | jq '.grabbed')
+	if [ $IS_GRABBED == "1" ]; then
+		WINDOW_ID=$(echo $MOUSE | jq '.id')
+		echo $WINDOW_ID
+	else
+		echo "FALSE"
+	fi
+}
+
+function preFocus() {
+	FOCUS=$(getGrabbedWindow)
+}
+
+function postFocus() {
+	if [ $FOCUS != "FALSE" ]; then
+		yabai -m window --focus $FOCUS
+	fi
+}
+
 function focusFirstSpace() {
 	yabai -m space --focus $(getFirstSpaceIndexForDisplay)
 }
@@ -33,6 +54,8 @@ function focusLastSpace() {
 function focusSpace() {
 	yabai -m space --focus $1
 }
+
+preFocus
 
 if [ $input == 'first' ]; then
 	focusFirstSpace
@@ -59,3 +82,5 @@ else
 		fi
 	fi
 fi
+
+postFocus
