@@ -27,7 +27,7 @@ function is_ssh_agent_pid_valid () {
    
     #ps -ef | grep $1 | grep -v grep | grep ssh-agent > /dev/null
     #kill $1 > /dev/null 2>&1;
-    [ "$(pgrep ssh-agent | head -n 1)" = "$1" ];
+    [ "$(pgrep -n ssh-agent | head -n 1)" = "$1" ];
 }
 
 # check for running ssh-agent with proper $SSH_AGENT_PID
