@@ -5,8 +5,11 @@
 
 CURRENT_HZ=$(display_manager.py show main | grep 'refresh rate' | awk '{print $3}')
 
-if [ "$CURRENT_HZ" != "99" ]; then
-	display_manager.py res 1920 1080 99 main
+#TARGET="99"
+TARGET="144"
+
+if [ "$CURRENT_HZ" != "$TARGET" ]; then
+	display_manager.py res 1920 1080 $TARGET main
 else
 	echo "Display is correct"
 fi
