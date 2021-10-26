@@ -29,4 +29,7 @@ gitlab-test() {
 		$@
 }
 
+# Do not steal my time with auto update
 export HOMEBREW_NO_AUTO_UPDATE=1
+# Use faster api
+export HOMEBREW_INSTALL_FROM_API=1
