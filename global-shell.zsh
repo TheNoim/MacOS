@@ -29,6 +29,9 @@ gitlab-test() {
 		$@
 }
 
+## Colorize the ls output ##
+alias ls='ls --color=auto'
+
 # Do not steal my time with auto update
 export HOMEBREW_NO_AUTO_UPDATE=1
 # Use faster api
