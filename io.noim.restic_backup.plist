@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC -//Apple Computer//DTD PLIST 1.0//EN
+http://www.apple.com/DTDs/PropertyList-1.0.dtd>
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>io.noim.restic_backup</string>
+    
+    <key>Program</key>
+    <string>/Users/nilsbergmann/scripts/backup.sh</string>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>StartInterval</key>
+    <integer>600</integer>
+    
+    <key>WorkingDirectory</key>
+    <string>/Users/nilsbergmann/</string>
+    
+    <key>StandardOutPath</key>
+    <string>/Users/nilsbergmann/Library/Logs/io.noim.restic_backup.out.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/nilsbergmann/Library/Logs/io.noim.restic_backup.error.log</string>
+</dict>
+</plist>
