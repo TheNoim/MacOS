@@ -1,10 +1,10 @@
 class Yabai < Formula
   desc "A tiling window manager for macOS based on binary space partitioning."
   homepage "https://github.com/TheNoim/yabai"
-  url "https://github.com/koekeishiya/yabai/files/7570537/yabai-v4.0.0.tar.gz"
-  sha256 "2c6f6ba4c6e16f2c0e6809807be95a64ab10ca635330eab47ee250ce588683c9"
+  url "https://github.com/TheNoim/yabai/releases/download/e14dd059d09c127355988946d283e7b43df385161ea25b0d38693ee5af80f828/yabai-v4.0.0.tar.gz"
+  sha256 "e14dd059d09c127355988946d283e7b43df385161ea25b0d38693ee5af80f828"
   head "https://github.com/TheNoim/yabai.git"
-  version "3.3.10-the-future"
+  version "4.0.0"
 
   depends_on :macos => :high_sierra
 
@@ -63,9 +63,5 @@ class Yabai < Formula
     </dict>
     </plist>
     EOS
-  end
-
-  test do
-    assert_match "yabai-v#{version}", shell_output("#{bin}/yabai --version")
   end
 end
