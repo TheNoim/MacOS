@@ -29,8 +29,14 @@ gitlab-test() {
 		$@
 }
 
+untilfail() {
+	while "$@"; do :; done
+}
+
 ## Colorize the ls output ##
 alias ls='ls --color=auto'
+## Download best yt audio with yt-dlp
+alias yt-audio='yt-dlp -f "ba" -x --audio-format mp3 --embed-thumbnail --embed-metadata'
 
 # Do not steal my time with auto update
 export HOMEBREW_NO_AUTO_UPDATE=1
