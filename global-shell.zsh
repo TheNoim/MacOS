@@ -42,3 +42,7 @@ alias yt-audio='yt-dlp -f "ba" -x --audio-format mp3 --embed-thumbnail --embed-m
 export HOMEBREW_NO_AUTO_UPDATE=1
 # Use faster api
 export HOMEBREW_INSTALL_FROM_API=1
+# Do not auto install other things after install
+export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
+# No auto clean up
+export HOMEBREW_NO_INSTALL_CLEANUP=1
