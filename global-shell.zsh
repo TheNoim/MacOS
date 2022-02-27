@@ -37,6 +37,8 @@ untilfail() {
 alias ls='ls --color=auto'
 ## Download best yt audio with yt-dlp
 alias yt-audio='yt-dlp -f "ba" -x --audio-format mp3 --embed-thumbnail --embed-metadata'
+## http-server removed the hs alias :(
+alias hs='http-server'
 
 # Do not steal my time with auto update
 export HOMEBREW_NO_AUTO_UPDATE=1
