@@ -1,0 +1,6 @@
+
+ctrl - right : ~/script/YabiExtendedCli next
+ctrl - left : ~/script/YabiExtendedCli back
+
+ctrl + alt - right : ~/script/YabiExtendedCli nextMoveWindow
+ctrl + alt - left : ~/script/YabiExtendedCli backMoveWindow
