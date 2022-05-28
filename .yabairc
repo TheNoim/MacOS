@@ -23,7 +23,8 @@ if [[ -f $HOME/.is-mbp ]]; then
 	yabai -m config layout bsp
 
 	# Floating windows always on top
-	yabai -m config window_topmost on
+	# Currently broken with dropdown menus
+	yabai -m config window_topmost off
 
 	# Window opacity settings
 	yabai -m config window_opacity on
