@@ -1,6 +1,8 @@
-
 ctrl - right : ~/scripts/YabiExtendedCli next
 ctrl - left : ~/scripts/YabiExtendedCli back
 
 ctrl + alt - right : ~/scripts/YabiExtendedCli nextMoveWindow
 ctrl + alt - left : ~/scripts/YabiExtendedCli backMoveWindow
+
+
+shift + alt + cmd - space : /usr/local/bin/yabai -m window --toggle float

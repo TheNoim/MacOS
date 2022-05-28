@@ -13,5 +13,24 @@ yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 #yabai -m signal --add event=display_changed \
 #    action="set SHELL=/bin/sh && open -g \"bitbar://refreshPlugin?name=yabai.365d.sh\""
 
+#########################
+# Tiling window config  #
+#########################
+
+if [[ -f $HOME/.is-mbp ]]; then
+
+	# Default managed
+	yabai -m config layout bsp
+
+	# Floating windows always on top
+	yabai -m config window_topmost on
+
+	# Window opacity settings
+	yabai -m config window_opacity on
+	yabai -m config active_window_opacity 1.0
+	yabai -m config normal_window_opacity 0.95
+
+fi
+
 # Message
 echo "signals ready"
