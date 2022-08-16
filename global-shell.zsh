@@ -1,4 +1,3 @@
-
 # Git commit shortcut
 gcommit() {
 	if [ -z "$@" ]; then
@@ -29,6 +28,10 @@ gitlab-test() {
 		$@
 }
 
+reload-zsh() {
+	source $HOME/.zshrc
+}
+
 untilfail() {
 	while "$@"; do :; done
 }
@@ -48,3 +51,10 @@ export HOMEBREW_INSTALL_FROM_API=1
 #export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
 # No auto clean up
 export HOMEBREW_NO_INSTALL_CLEANUP=1
+
+# Enable auto cd
+setopt auto_cd
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+alias -g ......='../../../../..'

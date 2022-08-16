@@ -27,10 +27,19 @@ if [[ -f $HOME/.is-mbp ]]; then
 	# yabai -m config window_topmost off
 
 	# Window opacity settings
-	yabai -m config window_opacity on
-	yabai -m config active_window_opacity 1.0
-	yabai -m config normal_window_opacity 0.95
+	# yabai -m config window_opacity on
+	# yabai -m config active_window_opacity 1.0
+	# yabai -m config normal_window_opacity 0.95
 
+
+	yabai -m signal --add event=space_changed \
+	  action="set SHELL=/bin/sh && open -g \"xbar://app.xbarapp.com/refreshPlugin?path=001-yabai.365d.sh\""
+	yabai -m signal --add event=window_resized \
+	  action="set SHELL=/bin/sh && open -g \"xbar://app.xbarapp.com/refreshPlugin?path=001-yabai.365d.sh\""
+	yabai -m signal --add event=window_focused \
+	  action="set SHELL=/bin/sh && open -g \"xbar://app.xbarapp.com/refreshPlugin?path=001-yabai.365d.sh\""
+	yabai -m signal --add event=application_activated \
+	  action="set SHELL=/bin/sh && open -g \"xbar://app.xbarapp.com/refreshPlugin?path=001-yabai.365d.sh\""
 fi
 
 # Message
