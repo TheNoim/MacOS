@@ -58,4 +58,3 @@ alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
 alias -g ......='../../../../..'
-alias clear-dns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder; sudo killall -HUP mDNSResponderHelper"
