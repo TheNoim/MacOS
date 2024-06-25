@@ -11,7 +11,7 @@ function getCurrentDisplay() {
 }
 
 function getCurrentSpaceForDisplay() {
-	echo $(yabai -m query --spaces --display mouse | jq 'map(select(.visible == 1)) | .[0] | .index')
+	echo $(yabai -m query --spaces --display mouse | jq 'map(select(."is-visible" == true)) | .[0] | .index')
 }
 
 function getFirstSpaceIndexForDisplay() {
@@ -24,7 +24,7 @@ function getLastSpaceIndexForDisplay() {
 
 function getGrabbedWindow() {
 	MOUSE=$(yabai -m query --windows --window mouse)
-	IS_GRABBED=$(echo $MOUSE | jq '.grabbed')
+	IS_GRABBED=$(echo $MOUSE | jq '."is-grabbed"')
 	if [ $IS_GRABBED == "1" ]; then
 		WINDOW_ID=$(echo $MOUSE | jq '.id')
 		echo $WINDOW_ID
